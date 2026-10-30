@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="header_home">首頁</string>
+    <string name="header_drama">影片（戲劇）</string>
+    <string name="header_live_news">直播（新聞）</string>
     <string name="title_search">搜尋</string>
     <string name="header_subscriptions">訂閱內容</string>
     <string name="header_history">觀看紀錄</string>

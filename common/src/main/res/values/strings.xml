@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <string name="header_home">Home</string>
+    <string name="header_drama">Video (Drama)</string>
+    <string name="header_live_news">Live (News)</string>
+    <string name="drama_search_query" translatable="false">戲劇</string>
+    <string name="news_search_query" translatable="false">新聞</string>
     <string name="title_search">Search</string>
     <string name="header_subscriptions">Subscriptions</string>
     <string name="header_history">History</string>

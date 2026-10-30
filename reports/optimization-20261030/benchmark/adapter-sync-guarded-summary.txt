@@ -1,0 +1,21 @@
+PASS: duplicate, mix distinction, missing, repeated, empty, single, notifications
+JVM: 17.0.20.1+1-LTS OpenJDK 64-Bit Server VM
+OS: Windows 10 10.0 amd64
+Model: Video hashCodeAny eight-field varargs; isMix simplified boolean
+Guard: true
+cards=100 updates=1 baseline_median=410 p95=684 indexed_median=424 p95=622 ratio=0.97x
+cards=100 updates=2 baseline_median=800 p95=804 indexed_median=820 p95=850 ratio=0.98x
+cards=100 updates=8 baseline_median=3092 p95=3202 indexed_median=3102 p95=3564 ratio=1.00x
+cards=100 updates=20 baseline_median=7714 p95=8018 indexed_median=7718 p95=7908 ratio=1.00x
+cards=100 updates=60 baseline_median=23168 p95=23294 indexed_median=23224 p95=23940 ratio=1.00x
+cards=1000 updates=1 baseline_median=3686 p95=3882 indexed_median=3676 p95=3840 ratio=1.00x
+cards=1000 updates=2 baseline_median=7522 p95=9078 indexed_median=7340 p95=8162 ratio=1.02x
+cards=1000 updates=8 baseline_median=29876 p95=31030 indexed_median=29930 p95=30974 ratio=1.00x
+cards=1000 updates=20 baseline_median=76258 p95=78954 indexed_median=38548 p95=75932 ratio=1.98x
+cards=1000 updates=60 baseline_median=220828 p95=231578 indexed_median=36266 p95=57298 ratio=6.09x
+cards=5000 updates=1 baseline_median=18926 p95=19404 indexed_median=18938 p95=19692 ratio=1.00x
+cards=5000 updates=2 baseline_median=38742 p95=40754 indexed_median=38936 p95=39776 ratio=1.00x
+cards=5000 updates=8 baseline_median=154580 p95=161680 indexed_median=153634 p95=159806 ratio=1.01x
+cards=5000 updates=20 baseline_median=443770 p95=468102 indexed_median=242240 p95=311600 ratio=1.83x
+cards=5000 updates=60 baseline_median=1339846 p95=1682762 indexed_median=254654 p95=308514 ratio=5.26x
+checksum=1248

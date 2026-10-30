@@ -1,0 +1,282 @@
+[
+  {
+    "old": "images/app_banner.png",
+    "new": "images/app_banner.webp",
+    "before": 7766,
+    "after": 4720,
+    "rgba_equal": true
+  },
+  {
+    "old": "images/app_icon.png",
+    "new": "images/app_icon.webp",
+    "before": 9678,
+    "after": 5998,
+    "rgba_equal": true
+  },
+  {
+    "old": "images/app_icon_downscaled.png",
+    "new": "images/app_icon_downscaled.webp",
+    "before": 6373,
+    "after": 3878,
+    "rgba_equal": true
+  },
+  {
+    "old": "images/app_logo.png",
+    "new": "images/app_logo.webp",
+    "before": 13030,
+    "after": 9274,
+    "rgba_equal": true
+  },
+  {
+    "old": "images/badge_fdroid.png",
+    "new": "images/badge_fdroid.webp",
+    "before": 14272,
+    "after": 8528,
+    "rgba_equal": true
+  },
+  {
+    "old": "images/badge_github.png",
+    "new": "images/badge_github.webp",
+    "before": 15613,
+    "after": 5126,
+    "rgba_equal": true
+  },
+  {
+    "old": "images/badge_izzy.png",
+    "new": "images/badge_izzy.webp",
+    "before": 20993,
+    "after": 13338,
+    "rgba_equal": true
+  },
+  {
+    "old": "images/browse.png",
+    "new": "images/browse.webp",
+    "before": 1102322,
+    "after": 706738,
+    "rgba_equal": true
+  },
+  {
+    "old": "images/browse_history.png",
+    "new": "images/browse_history.webp",
+    "before": 1463695,
+    "after": 937422,
+    "rgba_equal": true
+  },
+  {
+    "old": "images/browse_home.png",
+    "new": "images/browse_home.webp",
+    "before": 1145695,
+    "after": 500682,
+    "rgba_equal": true
+  },
+  {
+    "old": "images/browse_music.png",
+    "new": "images/browse_music.webp",
+    "before": 880136,
+    "after": 521266,
+    "rgba_equal": true
+  },
+  {
+    "old": "images/browse_subscriptions.png",
+    "new": "images/browse_subscriptions.webp",
+    "before": 1135324,
+    "after": 658994,
+    "rgba_equal": true
+  },
+  {
+    "old": "images/hash_cleared.png",
+    "new": "images/hash_cleared.webp",
+    "before": 63289,
+    "after": 36540,
+    "rgba_equal": true
+  },
+  {
+    "old": "images/hash_cleared_small.png",
+    "new": "images/hash_cleared_small.webp",
+    "before": 40343,
+    "after": 28336,
+    "rgba_equal": true
+  },
+  {
+    "old": "images/new/compatibility.png",
+    "new": "images/new/compatibility.webp",
+    "before": 780183,
+    "after": 418518,
+    "rgba_equal": true
+  },
+  {
+    "old": "images/new/upload_f6ab10668ea7793f099108f2b2230406.png",
+    "new": "images/new/upload_f6ab10668ea7793f099108f2b2230406.webp",
+    "before": 261707,
+    "after": 118982,
+    "rgba_equal": true
+  },
+  {
+    "old": "images/screen.png",
+    "new": "images/screen.webp",
+    "before": 1650517,
+    "after": 988564,
+    "rgba_equal": true
+  },
+  {
+    "old": "images/search.png",
+    "new": "images/search.webp",
+    "before": 724350,
+    "after": 447098,
+    "rgba_equal": true
+  },
+  {
+    "old": "images/search_keyboard.png",
+    "new": "images/search_keyboard.webp",
+    "before": 575749,
+    "after": 350632,
+    "rgba_equal": true
+  },
+  {
+    "old": "images/video.png",
+    "new": "images/video.webp",
+    "before": 445118,
+    "after": 266644,
+    "rgba_equal": true
+  },
+  {
+    "old": "images/video_options.png",
+    "new": "images/video_options.webp",
+    "before": 100289,
+    "after": 34132,
+    "rgba_equal": true
+  },
+  {
+    "old": "images/video_related.png",
+    "new": "images/video_related.webp",
+    "before": 1403189,
+    "after": 940428,
+    "rgba_equal": true
+  },
+  {
+    "old": "smarttubetv/src/main/res/drawable-xhdpi/ic_refresh_white.png",
+    "new": "smarttubetv/src/main/res/drawable-xhdpi/ic_refresh_white.png",
+    "before": 1902,
+    "after": 1648,
+    "rgba_equal": true
+  },
+  {
+    "old": "smarttubetv/src/main/res/drawable-xhdpi/ic_user.png",
+    "new": "smarttubetv/src/main/res/drawable-xhdpi/ic_user.png",
+    "before": 483,
+    "after": 373,
+    "rgba_equal": true
+  },
+  {
+    "old": "smarttubetv/src/main/res/drawable/header_default.png",
+    "new": "smarttubetv/src/main/res/drawable/header_default.png",
+    "before": 4658,
+    "after": 4555,
+    "rgba_equal": true
+  },
+  {
+    "old": "smarttubetv/src/main/res/drawable/movie.png",
+    "new": "smarttubetv/src/main/res/drawable/movie.png",
+    "before": 13007,
+    "after": 9310,
+    "rgba_equal": true
+  },
+  {
+    "old": "smarttubetv/src/main/res/mipmap-nodpi/app_icon.png",
+    "new": "smarttubetv/src/main/res/mipmap-nodpi/app_icon.png",
+    "before": 9678,
+    "after": 9486,
+    "rgba_equal": true
+  },
+  {
+    "old": "smarttubetv/src/main/res/mipmap-nodpi/app_icon_alt.png",
+    "new": "smarttubetv/src/main/res/mipmap-nodpi/app_icon_alt.png",
+    "before": 9278,
+    "after": 9152,
+    "rgba_equal": true
+  },
+  {
+    "old": "smarttubetv/src/main/res/mipmap-nodpi/app_logo_none.png",
+    "new": "smarttubetv/src/main/res/mipmap-nodpi/app_logo_none.png",
+    "before": 575,
+    "after": 536,
+    "rgba_equal": true
+  },
+  {
+    "old": "smarttubetv/src/stbeta/res/mipmap-nodpi-v30/app_icon.png",
+    "new": "smarttubetv/src/stbeta/res/mipmap-nodpi-v30/app_icon.png",
+    "before": 11766,
+    "after": 11717,
+    "rgba_equal": true
+  },
+  {
+    "old": "smarttubetv/src/stbeta/res/mipmap-nodpi/app_banner.png",
+    "new": "smarttubetv/src/stbeta/res/mipmap-nodpi/app_banner.png",
+    "before": 10807,
+    "after": 10757,
+    "rgba_equal": true
+  },
+  {
+    "old": "smarttubetv/src/stbeta/res/mipmap-nodpi/app_logo.png",
+    "new": "smarttubetv/src/stbeta/res/mipmap-nodpi/app_logo.png",
+    "before": 8550,
+    "after": 8426,
+    "rgba_equal": true
+  },
+  {
+    "old": "smarttubetv/src/stfdroid/res/mipmap-nodpi-v30/app_icon.png",
+    "new": "smarttubetv/src/stfdroid/res/mipmap-nodpi-v30/app_icon.png",
+    "before": 14008,
+    "after": 13996,
+    "rgba_equal": true
+  },
+  {
+    "old": "smarttubetv/src/stfdroid/res/mipmap-nodpi/app_banner.png",
+    "new": "smarttubetv/src/stfdroid/res/mipmap-nodpi/app_banner.png",
+    "before": 11865,
+    "after": 11815,
+    "rgba_equal": true
+  },
+  {
+    "old": "smarttubetv/src/stfdroid/res/mipmap-nodpi/app_logo.png",
+    "new": "smarttubetv/src/stfdroid/res/mipmap-nodpi/app_logo.png",
+    "before": 8776,
+    "after": 8731,
+    "rgba_equal": true
+  },
+  {
+    "old": "smarttubetv/src/ststable/res/mipmap-nodpi-v30/app_icon.png",
+    "new": "smarttubetv/src/ststable/res/mipmap-nodpi-v30/app_icon.png",
+    "before": 6080,
+    "after": 5948,
+    "rgba_equal": true
+  },
+  {
+    "old": "smarttubetv/src/ststable/res/mipmap-nodpi/app_banner.png",
+    "new": "smarttubetv/src/ststable/res/mipmap-nodpi/app_banner.png",
+    "before": 7871,
+    "after": 7698,
+    "rgba_equal": true
+  },
+  {
+    "old": "smarttubetv/src/ststable/res/mipmap-nodpi/app_icon.png",
+    "new": "smarttubetv/src/ststable/res/mipmap-nodpi/app_icon.png",
+    "before": 10039,
+    "after": 9883,
+    "rgba_equal": true
+  },
+  {
+    "old": "smarttubetv/src/ststable/res/mipmap-nodpi/app_logo.png",
+    "new": "smarttubetv/src/ststable/res/mipmap-nodpi/app_logo.png",
+    "before": 5174,
+    "after": 5051,
+    "rgba_equal": true
+  },
+  {
+    "old": "smarttubetv/src/ststable/res/mipmap-nodpi/app_logo_semi_red.png",
+    "new": "smarttubetv/src/ststable/res/mipmap-nodpi/app_logo_semi_red.png",
+    "before": 5368,
+    "after": 5325,
+    "rgba_equal": true
+  }
+]

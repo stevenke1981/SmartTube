@@ -1,0 +1,22 @@
+[
+  {
+    "name": "SmartTube_stable_32.68_arm64-v8a.apk",
+    "bytes": 28944958,
+    "resources": 1832219
+  },
+  {
+    "name": "SmartTube_stable_32.68_armeabi-v7a.apk",
+    "bytes": 27164190,
+    "resources": 1832219
+  },
+  {
+    "name": "SmartTube_stable_32.68_universal.apk",
+    "bytes": 39673701,
+    "resources": 1832219
+  },
+  {
+    "name": "SmartTube_stable_32.68_x86.apk",
+    "bytes": 29927834,
+    "resources": 1832219
+  }
+]

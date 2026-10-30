@@ -1,5 +1,5 @@
-[<img src="images/badge_fdroid.png" alt="Get it on F-Droid" height="80">](https://f-droid.org/packages/app.smarttube.fdroid/)
-[<img src="images/badge_github.png" alt="Get it on GitHub" height="80">](https://github.com/yuliskov/SmartTube/releases)
+[<img src="images/badge_fdroid.webp" alt="Get it on F-Droid" height="80">](https://f-droid.org/packages/app.smarttube.fdroid/)
+[<img src="images/badge_github.webp" alt="Get it on GitHub" height="80">](https://github.com/yuliskov/SmartTube/releases)
 
 # Important announcement about the app
 
@@ -22,7 +22,7 @@ Please keep built-in security features enabled to stay protected.
   
 <!-- <img width="100" src="https://github.com/yuliskov/SmartTube/blob/master/smarttubetv/src/ststable/res/mipmap-nodpi/app_icon.png" alt="logo"/> -->
 
-![The app screenshot](./images/browse_home.png)
+![The app screenshot](./images/browse_home.webp)
 
 SmartTube is a free and open-source media client for Android TVs and TV boxes. It allows you to browse and play content from various public sources in a TV-optimized interface.
 
@@ -54,7 +54,7 @@ Give it a try!
 > [!IMPORTANT]  
 > Starting in October 2025 new Amazon FireTV devices no longer run Android under the hood. SmartTube will **not** be compatible with the Fire Stick 4k Select and newer devices which run Amazon's own VegaOS.
 
-![Device support image](images/new/compatibility.png)
+![Device support image](images/new/compatibility.webp)
 * **Supported:** all Android TVs and TV boxes (incl. All FireTV devices released before Oct. 2025, NVIDIA Shield & Chromecast with Google TV), even older ones with Android 4.3 (Kitkat).
 * **Not supported:** Smartphones, non-Android platforms like Samsung Tizen, LG webOS, Apple TV, etc.
 

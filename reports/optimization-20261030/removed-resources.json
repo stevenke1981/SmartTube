@@ -1,0 +1,7 @@
+[
+  {
+    "path": "smarttubetv/src/main/res/drawable-xhdpi/grid_bg.png",
+    "before": 400386,
+    "reason": "No references in source, layouts, themes or submodules; obsolete background resource"
+  }
+]

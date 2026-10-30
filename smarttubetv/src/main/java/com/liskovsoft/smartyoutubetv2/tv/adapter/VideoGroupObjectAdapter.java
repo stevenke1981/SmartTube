@@ -10,7 +10,9 @@ import com.liskovsoft.smartyoutubetv2.common.app.models.data.Video;
 import com.liskovsoft.smartyoutubetv2.common.app.models.data.VideoGroup;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 public class VideoGroupObjectAdapter extends ObjectAdapter {
@@ -201,7 +203,31 @@ public class VideoGroupObjectAdapter extends ObjectAdapter {
     }
 
     public void sync(VideoGroup group) {
+        Map<Video, List<Integer>> positions = null;
+        // Index only large batches: small updates cost less with a direct scan.
+        if (group.getVideos().size() >= 20 && mVideoItems.size() >= 256) {
+            positions = new HashMap<>();
+            for (int i = 0; i < mVideoItems.size(); i++) {
+                Video item = mVideoItems.get(i);
+                List<Integer> indices = positions.get(item);
+                if (indices == null) {
+                    indices = new ArrayList<>();
+                    positions.put(item, indices);
+                }
+                indices.add(i);
+            }
+        }
         for (Video video : group.getVideos()) {
+            if (positions != null) {
+                List<Integer> indices = positions.get(video);
+                if (indices != null) {
+                    for (int index : indices) {
+                        mVideoItems.get(index).sync(video);
+                        notifyItemRangeChanged(index, 1);
+                    }
+                }
+                continue;
+            }
             // Search for multiple occurrences (e.g. History section)
             for (int i = 0; i < mVideoItems.size(); i++) {
                 Video origin = mVideoItems.get(i);

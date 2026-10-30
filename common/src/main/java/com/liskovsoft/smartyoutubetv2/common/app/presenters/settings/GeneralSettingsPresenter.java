@@ -75,8 +75,6 @@ public class GeneralSettingsPresenter extends BasePresenter<Void> {
     public void show() {
         AppDialogPresenter settingsPresenter = AppDialogPresenter.instance(getContext());
 
-        appendBootToSection(settingsPresenter);
-        appendEnabledSections(settingsPresenter);
         appendContextMenuItemsCategory(settingsPresenter);
         appendHideContent(settingsPresenter);
         appendAppExitCategory(settingsPresenter);

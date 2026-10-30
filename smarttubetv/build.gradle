@@ -24,6 +24,11 @@ buildscript {
 
 apply plugin: 'com.android.application'
 
+// Host tests must use Robolectric's JVM TLS provider, not Android JNI binaries.
+configurations.matching { it.name.endsWith('UnitTestRuntimeClasspath') }.all {
+    exclude group: 'org.conscrypt', module: 'conscrypt-android'
+}
+
 def keystorePropertiesFile = rootProject.file("keystore.properties")
 def keystoreProperties = new Properties()
 if (keystorePropertiesFile.exists()) {
@@ -217,7 +222,8 @@ dependencies {
     //////// END EXOPLAYER //////////
 
     testImplementation 'junit:junit:' + junitVersion
-    testImplementation 'org.robolectric:robolectric:' + robolectricVersion
+    // The app tests run on JDK 17, which the shared 4.6.1 runner cannot instrument.
+    testImplementation 'org.robolectric:robolectric:4.11.1'
     androidTestImplementation 'androidx.test.ext:junit:' + testXSupportVersion
     androidTestImplementation 'androidx.test.ext:truth:' + testXSupportVersion
     androidTestImplementation 'androidx.test:runner:' + testXSupportVersion

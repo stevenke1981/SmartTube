@@ -1,0 +1,38 @@
+[
+  {
+    "name": "SmartTube_stable_32.68_arm64-v8a.apk",
+    "bytes": 28553935,
+    "before": 28944958,
+    "resources": 1441011,
+    "sha256": "8b28396c1c120480ddab2d13d8562e340db7be99cf7f012810d7b58382bb2c5b",
+    "banner_packaged": true,
+    "saved_bytes": 391023
+  },
+  {
+    "name": "SmartTube_stable_32.68_armeabi-v7a.apk",
+    "bytes": 26773167,
+    "before": 27164190,
+    "resources": 1441011,
+    "sha256": "e4168520201314aa199bab1849e532d713d29f1794e8bb3c3fa0ecbf2de354c3",
+    "banner_packaged": true,
+    "saved_bytes": 391023
+  },
+  {
+    "name": "SmartTube_stable_32.68_universal.apk",
+    "bytes": 39282678,
+    "before": 39673701,
+    "resources": 1441011,
+    "sha256": "b0073dfdf3081787881d02319a42f522bb4cd3fa4e6a8175659c8f067e35c03e",
+    "banner_packaged": true,
+    "saved_bytes": 391023
+  },
+  {
+    "name": "SmartTube_stable_32.68_x86.apk",
+    "bytes": 29536807,
+    "before": 29927834,
+    "resources": 1441011,
+    "sha256": "9f24fae0a0487cee46b100351299c17d1f1c812b3f8405040ff2b86a0eea7f66",
+    "banner_packaged": true,
+    "saved_bytes": 391027
+  }
+]

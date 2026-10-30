@@ -9,6 +9,7 @@ import androidx.annotation.Nullable;
 
 import com.liskovsoft.mediaserviceinterfaces.oauth.Account;
 import com.liskovsoft.mediaserviceinterfaces.data.MediaGroup;
+import com.liskovsoft.mediaserviceinterfaces.data.SearchOptions;
 import com.liskovsoft.sharedutils.helpers.Helpers;
 import com.liskovsoft.sharedutils.locale.LocaleUtility;
 import com.liskovsoft.sharedutils.mylogger.Log;
@@ -58,6 +59,7 @@ import io.reactivex.Observable;
 import io.reactivex.disposables.Disposable;
 
 public class BrowsePresenter extends BasePresenter<BrowseView> implements SectionPresenter, VideoGroupPresenter, AccountChangeListener {
+    private static final int TYPE_NEWS_LIVE = 23;
     private static final String TAG = BrowsePresenter.class.getSimpleName();
     @SuppressLint("StaticFieldLeak")
     private static BrowsePresenter sInstance;
@@ -77,6 +79,7 @@ public class BrowsePresenter extends BasePresenter<BrowseView> implements Sectio
     private long mLastUpdateTimeMs = -1;
     private int mBootSectionIndex;
     private int mBootstrapSectionId = -1;
+    private int mExtraSectionId = -1;
 
     private BrowsePresenter(Context context) {
         super(context);
@@ -187,6 +190,8 @@ public class BrowsePresenter extends BasePresenter<BrowseView> implements Sectio
         int uploadsType = getMainUIData().isUploadsOldLookEnabled() ? BrowseSection.TYPE_GRID : BrowseSection.TYPE_MULTI_GRID;
 
         mSectionsMapping.put(MediaGroup.TYPE_HOME, new BrowseSection(MediaGroup.TYPE_HOME, getContext().getString(R.string.header_home), BrowseSection.TYPE_ROW, R.drawable.icon_home, false));
+        mSectionsMapping.put(MediaGroup.TYPE_MOVIES, new BrowseSection(MediaGroup.TYPE_MOVIES, getContext().getString(R.string.header_drama), BrowseSection.TYPE_ROW, R.drawable.icon_home));
+        mSectionsMapping.put(TYPE_NEWS_LIVE, new BrowseSection(TYPE_NEWS_LIVE, getContext().getString(R.string.header_live_news), BrowseSection.TYPE_ROW, R.drawable.icon_live));
         mSectionsMapping.put(MediaGroup.TYPE_SHORTS, new BrowseSection(MediaGroup.TYPE_SHORTS, getContext().getString(R.string.header_shorts), BrowseSection.TYPE_SHORTS_GRID, R.drawable.icon_shorts));
         mSectionsMapping.put(MediaGroup.TYPE_TRENDING, new BrowseSection(MediaGroup.TYPE_TRENDING, getContext().getString(R.string.header_trending), BrowseSection.TYPE_ROW, R.drawable.icon_trending));
         mSectionsMapping.put(MediaGroup.TYPE_KIDS_HOME, new BrowseSection(MediaGroup.TYPE_KIDS_HOME, getContext().getString(R.string.header_kids_home), BrowseSection.TYPE_ROW, R.drawable.icon_kids_home));
@@ -207,13 +212,13 @@ public class BrowsePresenter extends BasePresenter<BrowseView> implements Sectio
         mSectionsMapping.put(MediaGroup.TYPE_NOTIFICATIONS, new BrowseSection(MediaGroup.TYPE_NOTIFICATIONS, getContext().getString(R.string.header_notifications), BrowseSection.TYPE_GRID, R.drawable.icon_notification, false));
         mSectionsMapping.put(MediaGroup.TYPE_PLAYBACK_QUEUE, new BrowseSection(MediaGroup.TYPE_PLAYBACK_QUEUE, getContext().getString(R.string.playback_queue_category_title), BrowseSection.TYPE_GRID, R.drawable.icon_queue, false));
 
-        if (getSidebarService().isSettingsSectionEnabled()) {
-            mSectionsMapping.put(MediaGroup.TYPE_SETTINGS, new BrowseSection(MediaGroup.TYPE_SETTINGS, getContext().getString(R.string.header_settings), BrowseSection.TYPE_SETTINGS_GRID, R.drawable.icon_settings));
-        }
+        mSectionsMapping.put(MediaGroup.TYPE_SETTINGS, new BrowseSection(MediaGroup.TYPE_SETTINGS, getContext().getString(R.string.header_settings), BrowseSection.TYPE_SETTINGS_GRID, R.drawable.icon_settings));
     }
 
     private void initRowAndGridMapping() {
         mRowMapping.put(MediaGroup.TYPE_HOME, getContentService().getHomeObserve());
+        mRowMapping.put(MediaGroup.TYPE_MOVIES, getContentService().getSearchObserve(getContext().getString(R.string.drama_search_query)));
+        mRowMapping.put(TYPE_NEWS_LIVE, getContentService().getSearchObserve(getContext().getString(R.string.news_search_query), SearchOptions.FEATURE_LIVE));
         mRowMapping.put(MediaGroup.TYPE_TRENDING, getContentService().getTrendingObserve());
         mRowMapping.put(MediaGroup.TYPE_KIDS_HOME, getContentService().getKidsHomeObserve());
         mRowMapping.put(MediaGroup.TYPE_SPORTS, getContentService().getSportsObserve());
@@ -234,14 +239,23 @@ public class BrowsePresenter extends BasePresenter<BrowseView> implements Sectio
     private void initPinnedSections() {
         mSections.clear();
 
+        for (int id : new int[] {MediaGroup.TYPE_MOVIES, MediaGroup.TYPE_MUSIC, MediaGroup.TYPE_KIDS_HOME,
+                MediaGroup.TYPE_SHORTS, TYPE_NEWS_LIVE, MediaGroup.TYPE_SETTINGS}) {
+            mSections.add(mSectionsMapping.get(id));
+        }
+
+        if (mExtraSectionId == -1 || mSections.contains(mSectionsMapping.get(mExtraSectionId))) {
+            return;
+        }
+
         Collection<Video> pinnedItems = getSidebarService().getPinnedItems();
 
         for (Video item : pinnedItems) {
             if (item != null) {
-                if (item.sectionId == -1) { // pinned channel or playlist
+                if (item.sectionId == -1 && item.getId() == mExtraSectionId) { // pinned channel or playlist
                     BrowseSection section = createPinnedSection(item);
                     mSections.add(section);
-                } else {
+                } else if (item.sectionId == mExtraSectionId) {
                     BrowseSection section = mSectionsMapping.get(item.sectionId);
 
                     if (section != null) {
@@ -249,6 +263,10 @@ public class BrowsePresenter extends BasePresenter<BrowseView> implements Sectio
                     }
                 }
             }
+        }
+        BrowseSection extra = mSectionsMapping.get(mExtraSectionId);
+        if (extra != null && !mSections.contains(extra)) {
+            mSections.add(extra);
         }
     }
 
@@ -493,7 +511,12 @@ public class BrowsePresenter extends BasePresenter<BrowseView> implements Sectio
     @Override
     public void onSectionFocused(int sectionId) {
         saveSelectedItems(); // save previous state
+        boolean returningFromExtra = mCurrentSection != null && mCurrentSection.getId() == mExtraSectionId;
         mCurrentSection = findSectionById(sectionId);
+        if (mExtraSectionId != -1 && returningFromExtra && sectionId != mExtraSectionId) {
+            mExtraSectionId = -1;
+            updateSections();
+        }
         mCurrentVideo = null; // fast scroll through the sections (fix empty selected item)
         updateCurrentSection();
         restoreSelectedItems(); // Don't place anywhere else
@@ -1112,15 +1135,16 @@ public class BrowsePresenter extends BasePresenter<BrowseView> implements Sectio
 
         if (getView() == null) {
             mBootstrapSectionId = sectionId;
+            mExtraSectionId = sectionId;
             return;
         }
 
         int sectionIndex = findSectionIndex(sectionId);
 
         if (sectionIndex == -1) {
-            enableSection(sectionId, true);
+            mExtraSectionId = sectionId;
+            updateSections();
             sectionIndex = findSectionIndex(sectionId);
-            getSidebarService().enableSection(sectionId, false); // enable temporally (till restart)
         }
 
         if (sectionIndex != -1) {

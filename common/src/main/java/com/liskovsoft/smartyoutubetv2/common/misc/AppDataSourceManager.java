@@ -4,6 +4,10 @@ import android.content.Context;
 import com.liskovsoft.sharedutils.helpers.Helpers;
 import com.liskovsoft.smartyoutubetv2.common.R;
 import com.liskovsoft.smartyoutubetv2.common.app.models.data.SettingsItem;
+import com.liskovsoft.smartyoutubetv2.common.app.models.data.Video;
+import com.liskovsoft.smartyoutubetv2.common.app.presenters.BrowsePresenter;
+import com.liskovsoft.smartyoutubetv2.common.app.presenters.service.SidebarService;
+import com.liskovsoft.mediaserviceinterfaces.data.MediaGroup;
 import com.liskovsoft.smartyoutubetv2.common.app.presenters.settings.AboutSettingsPresenter;
 import com.liskovsoft.smartyoutubetv2.common.app.presenters.settings.AboutSimpleSettingsPresenter;
 import com.liskovsoft.smartyoutubetv2.common.app.presenters.settings.AccountSettingsPresenter;
@@ -74,6 +78,22 @@ public class AppDataSourceManager {
         } else {
             settingItems.add(new SettingsItem(
                     context.getString(R.string.settings_about), () -> AboutSimpleSettingsPresenter.instance(context).show(), R.drawable.settings_about));
+        }
+
+        for (java.util.Map.Entry<Integer, Integer> entry : SidebarService.instance(context).getDefaultSections().entrySet()) {
+            int id = entry.getValue();
+            if (id == MediaGroup.TYPE_SETTINGS || id == MediaGroup.TYPE_MUSIC ||
+                    id == MediaGroup.TYPE_KIDS_HOME || id == MediaGroup.TYPE_SHORTS) {
+                continue;
+            }
+            settingItems.add(new SettingsItem(context.getString(entry.getKey()),
+                    () -> BrowsePresenter.instance(context).selectSection(id), R.drawable.icon_home));
+        }
+        for (Video item : SidebarService.instance(context).getPinnedItems()) {
+            if (item != null && item.sectionId == -1) {
+                settingItems.add(new SettingsItem(item.title,
+                        () -> BrowsePresenter.instance(context).selectSection(item.getId()), R.drawable.icon_home));
+            }
         }
 
         return settingItems;
